@@ -1,7 +1,7 @@
 package spanish
 
 import (
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 )
 
 // Step 3 is the removal of residual suffixes.

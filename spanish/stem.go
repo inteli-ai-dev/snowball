@@ -1,8 +1,8 @@
 package spanish
 
 import (
-	"github.com/kljensen/snowball/snowballword"
 	"log"
+	"snowball/snowballword"
 	"strings"
 )
 

@@ -1,7 +1,7 @@
 package russian
 
 import (
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 )
 
 // Step 3 is the removal of the derivational suffix.

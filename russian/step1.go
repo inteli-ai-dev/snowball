@@ -1,9 +1,16 @@
 package russian
 
 import (
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 	// "log"
 )
+
+var ruSuff0 = strs2runes("ся", "сь")
+
+var ruSuff1 = strs2runes("иями", "ями", "иях", "иям", "ием", "ией", "ами", "ях",
+	"ям", "ья", "ью", "ье", "ом", "ой", "ов", "ия", "ию",
+	"ий", "ии", "ие", "ем", "ей", "еи", "ев", "ах", "ам",
+	"я", "ю", "ь", "ы", "у", "о", "й", "и", "е", "а")
 
 // Step 1 is the removal of standard suffixes, all of which must
 // occur in RV.
@@ -27,7 +34,7 @@ func step1(word *snowballword.SnowballWord) bool {
 	}
 
 	// Next remove reflexive endings
-	word.RemoveFirstSuffixIn(word.RVstart, "ся", "сь")
+	word.RemoveFirstSuffixInR(word.RVstart, ruSuff0)
 
 	// Next remove adjectival endings
 	stop = removeAdjectivalEnding(word)
@@ -42,12 +49,7 @@ func step1(word *snowballword.SnowballWord) bool {
 	}
 
 	// Next remove noun endings
-	suffix, _ := word.RemoveFirstSuffixIn(word.RVstart,
-		"иями", "ями", "иях", "иям", "ием", "ией", "ами", "ях",
-		"ям", "ья", "ью", "ье", "ом", "ой", "ов", "ия", "ию",
-		"ий", "ии", "ие", "ем", "ей", "еи", "ев", "ах", "ам",
-		"я", "ю", "ь", "ы", "у", "о", "й", "и", "е", "а",
-	)
+	suffix, _ := word.RemoveFirstSuffixInR(word.RVstart, ruSuff1)
 	if suffix != "" {
 		return true
 	}
@@ -55,12 +57,12 @@ func step1(word *snowballword.SnowballWord) bool {
 	return false
 }
 
+var ruSuff2 = strs2runes("ившись", "ывшись", "вшись", "ивши", "ывши", "вши", "ив", "ыв", "в")
+
 // Remove perfective gerund endings and return true if one was removed.
 //
 func removePerfectiveGerundEnding(word *snowballword.SnowballWord) bool {
-	suffix, suffixRunes := word.FirstSuffixIn(word.RVstart, len(word.RS),
-		"ившись", "ывшись", "вшись", "ивши", "ывши", "вши", "ив", "ыв", "в",
-	)
+	suffix, suffixRunes := word.FirstSuffixInR(word.RVstart, len(word.RS), ruSuff2)
 	switch suffix {
 	case "в", "вши", "вшись":
 
@@ -81,24 +83,32 @@ func removePerfectiveGerundEnding(word *snowballword.SnowballWord) bool {
 
 // Remove adjectival endings and return true if one was removed.
 //
+func strs2runes(strings ...string) [][]rune {
+	ret := make([][]rune, 0, len(strings))
+	for _, str := range strings {
+		ret = append(ret, []rune(str))
+	}
+
+	return ret
+}
+
+var ruSuff3 = strs2runes("ими", "ыми", "его", "ого", "ему", "ому", "ее", "ие",
+	"ые", "ое", "ей", "ий", "ый", "ой", "ем", "им", "ым",
+	"ом", "их", "ых", "ую", "юю", "ая", "яя", "ою", "ею")
+
+var ruSuff4 = strs2runes("ивш", "ывш", "ующ", "ем", "нн", "вш", "ющ", "щ")
+
 func removeAdjectivalEnding(word *snowballword.SnowballWord) bool {
 
 	// Remove adjectival endings.  Start by looking for
 	// an adjective ending.
 	//
-	suffix, _ := word.RemoveFirstSuffixIn(word.RVstart,
-		"ими", "ыми", "его", "ого", "ему", "ому", "ее", "ие",
-		"ые", "ое", "ей", "ий", "ый", "ой", "ем", "им", "ым",
-		"ом", "их", "ых", "ую", "юю", "ая", "яя", "ою", "ею",
-	)
+	suffix, _ := word.RemoveFirstSuffixInR(word.RVstart, ruSuff3)
 	if suffix != "" {
 
 		// We found an adjective ending.  Remove optional participle endings.
 		//
-		newSuffix, newSuffixRunes := word.FirstSuffixIn(word.RVstart, len(word.RS),
-			"ивш", "ывш", "ующ",
-			"ем", "нн", "вш", "ющ", "щ",
-		)
+		newSuffix, newSuffixRunes := word.FirstSuffixInR(word.RVstart, len(word.RS), ruSuff4)
 		switch newSuffix {
 		case "ем", "нн", "вш", "ющ", "щ":
 
@@ -117,16 +127,16 @@ func removeAdjectivalEnding(word *snowballword.SnowballWord) bool {
 	return false
 }
 
+var ruSuff5 = strs2runes("уйте", "ейте", "ыть", "ыло", "ыли", "ыла", "уют", "ует",
+	"нно", "йте", "ишь", "ить", "ите", "ило", "или", "ила",
+	"ешь", "ете", "ены", "ено", "ена", "ят", "ют", "ыт", "ым",
+	"ыл", "ую", "уй", "ть", "ны", "но", "на", "ло", "ли", "ла",
+	"ит", "им", "ил", "ет", "ен", "ем", "ей", "ю", "н", "л", "й")
+
 // Remove verb endings and return true if one was removed.
 //
 func removeVerbEnding(word *snowballword.SnowballWord) bool {
-	suffix, suffixRunes := word.FirstSuffixIn(word.RVstart, len(word.RS),
-		"уйте", "ейте", "ыть", "ыло", "ыли", "ыла", "уют", "ует",
-		"нно", "йте", "ишь", "ить", "ите", "ило", "или", "ила",
-		"ешь", "ете", "ены", "ено", "ена", "ят", "ют", "ыт", "ым",
-		"ыл", "ую", "уй", "ть", "ны", "но", "на", "ло", "ли", "ла",
-		"ит", "им", "ил", "ет", "ен", "ем", "ей", "ю", "н", "л", "й",
-	)
+	suffix, suffixRunes := word.FirstSuffixInR(word.RVstart, len(word.RS), ruSuff5)
 	switch suffix {
 	case "ла", "на", "ете", "йте", "ли", "й", "л", "ем", "н",
 		"ло", "но", "ет", "ют", "ны", "ть", "ешь", "нно":

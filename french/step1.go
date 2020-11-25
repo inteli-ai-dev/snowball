@@ -1,7 +1,7 @@
 package french
 
 import (
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 )
 
 // Step 1 is the removal of standard suffixes

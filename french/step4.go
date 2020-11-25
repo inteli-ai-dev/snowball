@@ -1,8 +1,8 @@
 package french
 
 import (
-	"github.com/kljensen/snowball/snowballword"
 	"log"
+	"snowball/snowballword"
 )
 
 // Step 4 is the cleaning up of residual suffixes.

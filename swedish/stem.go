@@ -3,7 +3,7 @@ package swedish
 import (
 	"strings"
 
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 )
 
 // Stem a Swedish word. This is the only exported

@@ -263,11 +263,41 @@ func (w *SnowballWord) FirstSuffixIfIn(startPos, endPos int, suffixes ...string)
 	return "", suffixRunes
 }
 
+func (w *SnowballWord) FirstSuffixIfInR(startPos, endPos int, suffixesRunes [][]rune) (suffix string, suffixRunes []rune) {
+	for _, suffixRunes := range suffixesRunes {
+		if w.HasSuffixRunesIn(0, endPos, suffixRunes) {
+			if endPos-len(suffixRunes) >= startPos {
+				return string(suffixRunes), suffixRunes
+			} else {
+				// Empty out suffixRunes
+				suffixRunes = suffixRunes[:0]
+				return "", suffixRunes
+			}
+		}
+	}
+
+	// Empty out suffixRunes
+	suffixRunes = suffixRunes[:0]
+	return "", suffixRunes
+}
+
 func (w *SnowballWord) FirstSuffixIn(startPos, endPos int, suffixes ...string) (suffix string, suffixRunes []rune) {
 	for _, suffix := range suffixes {
 		suffixRunes := []rune(suffix)
 		if w.HasSuffixRunesIn(startPos, endPos, suffixRunes) {
-			return suffix, suffixRunes
+			return string(suffixRunes), suffixRunes
+		}
+	}
+
+	// Empty out suffixRunes
+	suffixRunes = suffixRunes[:0]
+	return "", suffixRunes
+}
+
+func (w *SnowballWord) FirstSuffixInR(startPos, endPos int, suffixesRunes [][]rune) (suffix string, suffixRunes []rune) {
+	for _, suffixRunes := range suffixesRunes {
+		if w.HasSuffixRunesIn(startPos, endPos, suffixRunes) {
+			return string(suffixRunes), suffixRunes
 		}
 	}
 
@@ -288,9 +318,26 @@ func (w *SnowballWord) RemoveFirstSuffixIfIn(startPos int, suffixes ...string) (
 	return
 }
 
+func (w *SnowballWord) RemoveFirstSuffixIfInR(startPos int, suffixesRunes [][]rune) (suffix string, suffixRunes []rune) {
+	suffix, suffixRunes = w.FirstSuffixIfInR(startPos, len(w.RS), suffixesRunes)
+	if suffix != "" {
+		w.RemoveLastNRunes(len(suffixRunes))
+	}
+	return
+}
+
 // Removes the first suffix found that is in `word.RS[startPos:len(word.RS)]`
 func (w *SnowballWord) RemoveFirstSuffixIn(startPos int, suffixes ...string) (suffix string, suffixRunes []rune) {
 	suffix, suffixRunes = w.FirstSuffixIn(startPos, len(w.RS), suffixes...)
+	if suffix != "" {
+		w.RemoveLastNRunes(len(suffixRunes))
+	}
+	return
+}
+
+// Removes the first suffix found that is in `word.RS[startPos:len(word.RS)]`
+func (w *SnowballWord) RemoveFirstSuffixInR(startPos int, suffixesRunes [][]rune) (suffix string, suffixRunes []rune) {
+	suffix, suffixRunes = w.FirstSuffixInR(startPos, len(w.RS), suffixesRunes)
 	if suffix != "" {
 		w.RemoveLastNRunes(len(suffixRunes))
 	}
@@ -302,7 +349,16 @@ func (w *SnowballWord) RemoveFirstSuffix(suffixes ...string) (suffix string, suf
 	return w.RemoveFirstSuffixIn(0, suffixes...)
 }
 
+func (w *SnowballWord) RemoveFirstSuffixR(suffixesRunes [][]rune) (suffix string, suffixRunes []rune) {
+	return w.RemoveFirstSuffixInR(0, suffixesRunes)
+}
+
 // Return the first suffix found or the empty string.
 func (w *SnowballWord) FirstSuffix(suffixes ...string) (suffix string, suffixRunes []rune) {
 	return w.FirstSuffixIfIn(0, len(w.RS), suffixes...)
+}
+
+// Return the first suffix found or the empty string.
+func (w *SnowballWord) FirstSuffixR(suffixesRunes [][]rune) (suffix string, suffixRunes []rune) {
+	return w.FirstSuffixIfInR(0, len(w.RS), suffixesRunes)
 }

@@ -1,7 +1,7 @@
 package russian
 
 import (
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 	"strings"
 )
 

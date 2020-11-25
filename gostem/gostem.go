@@ -7,10 +7,10 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"github.com/kljensen/snowball"
 	"io"
 	"log"
 	"os"
+	"snowball"
 	"strings"
 )
 

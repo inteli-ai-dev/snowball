@@ -1,7 +1,7 @@
 package spanish
 
 import (
-	"github.com/kljensen/snowball/snowballword"
+	"snowball/snowballword"
 )
 
 // Step 0 is the removal of attached pronouns
