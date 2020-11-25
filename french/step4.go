@@ -2,7 +2,8 @@ package french
 
 import (
 	"log"
-	"snowball/snowballword"
+
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Step 4 is the cleaning up of residual suffixes.

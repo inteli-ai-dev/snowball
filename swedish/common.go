@@ -1,8 +1,8 @@
 package swedish
 
 import (
-	"snowball/romance"
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/romance"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Find the starting point of the region R1.

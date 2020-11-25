@@ -1,7 +1,7 @@
 package french
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 func postprocess(word *snowballword.SnowballWord) {

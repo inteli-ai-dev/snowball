@@ -1,7 +1,7 @@
 package english
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Applies various transformations necessary for the

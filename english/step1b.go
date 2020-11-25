@@ -1,7 +1,7 @@
 package english
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Step 1b is the normalization of various "ly" and "ed" sufficies.

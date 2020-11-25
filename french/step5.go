@@ -1,7 +1,7 @@
 package french
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Step 5 Undouble non-vowel endings

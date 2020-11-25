@@ -1,9 +1,10 @@
 package french
 
 import (
-	"snowball/romance"
-	"snowball/snowballword"
 	"testing"
+
+	"github.com/olegator77/snowball/romance"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Test stopWords for things we know should be true

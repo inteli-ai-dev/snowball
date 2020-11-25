@@ -1,8 +1,9 @@
 package french
 
 import (
-	"snowball/snowballword"
 	"strings"
+
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Stem an French word.  This is the only exported

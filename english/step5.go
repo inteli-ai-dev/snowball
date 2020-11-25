@@ -1,7 +1,7 @@
 package english
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Step 5 is the stemming of "e" and "l" sufficies

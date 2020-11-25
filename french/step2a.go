@@ -1,7 +1,7 @@
 package french
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Step 2a is the removal of Verb suffixes beginning

@@ -3,12 +3,12 @@ package snowball
 import (
 	"fmt"
 
-	"snowball/english"
-	"snowball/french"
-	"snowball/norwegian"
-	"snowball/russian"
-	"snowball/spanish"
-	"snowball/swedish"
+	"github.com/olegator77/snowball/english"
+	"github.com/olegator77/snowball/french"
+	"github.com/olegator77/snowball/norwegian"
+	"github.com/olegator77/snowball/russian"
+	"github.com/olegator77/snowball/spanish"
+	"github.com/olegator77/snowball/swedish"
 )
 
 const (

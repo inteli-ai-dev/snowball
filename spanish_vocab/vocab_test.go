@@ -3,7 +3,7 @@ package spanish_vocab_test
 import (
 	"testing"
 
-	"snowball/spanish"
+	"github.com/olegator77/snowball/spanish"
 )
 
 // Test a large set of words for which we know

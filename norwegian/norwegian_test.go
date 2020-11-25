@@ -7,7 +7,7 @@ package norwegian
 import (
 	"testing"
 
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Test stopWords for things we know should be true

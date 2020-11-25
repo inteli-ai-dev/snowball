@@ -1,7 +1,7 @@
 package spanish
 
 import (
-	"snowball/snowballword"
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Step 0 is the removal of attached pronouns

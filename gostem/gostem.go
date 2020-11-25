@@ -10,8 +10,9 @@ import (
 	"io"
 	"log"
 	"os"
-	"snowball"
 	"strings"
+
+	"github.com/olegator77/snowball"
 )
 
 func main() {

@@ -1,8 +1,9 @@
 package spanish
 
 import (
-	"snowball/romance"
 	"testing"
+
+	"github.com/olegator77/snowball/romance"
 )
 
 // Test stopWords for things we know should be true

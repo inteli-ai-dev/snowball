@@ -2,8 +2,9 @@ package spanish
 
 import (
 	"log"
-	"snowball/snowballword"
 	"strings"
+
+	"github.com/olegator77/snowball/snowballword"
 )
 
 func printDebug(debug bool, w *snowballword.SnowballWord) {

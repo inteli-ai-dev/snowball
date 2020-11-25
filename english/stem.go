@@ -1,8 +1,9 @@
 package english
 
 import (
-	"snowball/snowballword"
 	"strings"
+
+	"github.com/olegator77/snowball/snowballword"
 )
 
 // Stem an English word.  This is the only exported

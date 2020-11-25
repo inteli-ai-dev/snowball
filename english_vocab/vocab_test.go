@@ -3,7 +3,7 @@ package english_vocab_test
 import (
 	"testing"
 
-	"snowball/english"
+	"github.com/olegator77/snowball/english"
 )
 
 // Test a large set of words for which we know
