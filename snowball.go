@@ -3,12 +3,12 @@ package snowball
 import (
 	"fmt"
 
-	"github.com/olegator77/snowball/english"
-	"github.com/olegator77/snowball/french"
-	"github.com/olegator77/snowball/norwegian"
-	"github.com/olegator77/snowball/russian"
-	"github.com/olegator77/snowball/spanish"
-	"github.com/olegator77/snowball/swedish"
+	"github.com/inteli-ai-dev/snowball/english"
+	"github.com/inteli-ai-dev/snowball/french"
+	"github.com/inteli-ai-dev/snowball/norwegian"
+	"github.com/inteli-ai-dev/snowball/russian"
+	"github.com/inteli-ai-dev/snowball/spanish"
+	"github.com/inteli-ai-dev/snowball/swedish"
 )
 
 const (

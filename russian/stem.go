@@ -3,7 +3,7 @@ package russian
 import (
 	"strings"
 
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Stem an Russian word.  This is the only exported

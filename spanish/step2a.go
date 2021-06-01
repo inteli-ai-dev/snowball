@@ -1,7 +1,7 @@
 package spanish
 
 import (
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Step 2a is the removal of verb suffixes beginning y,

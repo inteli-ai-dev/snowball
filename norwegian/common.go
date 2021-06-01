@@ -1,8 +1,8 @@
 package norwegian
 
 import (
-	"github.com/olegator77/snowball/romance"
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/romance"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Find the starting point of the region R1.

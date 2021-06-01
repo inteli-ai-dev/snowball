@@ -3,7 +3,7 @@ package spanish
 import (
 	"log"
 
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Step 1 is the removal of standard suffixes

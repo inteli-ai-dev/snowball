@@ -3,7 +3,7 @@ package french
 import (
 	"strings"
 
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Stem an French word.  This is the only exported

@@ -1,7 +1,7 @@
 package english
 
 import (
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Step 1a is normalization of various special "s"-endings.

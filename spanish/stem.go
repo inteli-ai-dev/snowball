@@ -4,7 +4,7 @@ import (
 	"log"
 	"strings"
 
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 func printDebug(debug bool, w *snowballword.SnowballWord) {

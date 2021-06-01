@@ -12,7 +12,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/olegator77/snowball"
+	"github.com/inteli-ai-dev/snowball"
 )
 
 func main() {

@@ -1,7 +1,7 @@
 package norwegian
 
 import (
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Get the r1 of the word

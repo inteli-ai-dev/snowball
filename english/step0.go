@@ -1,7 +1,7 @@
 package english
 
 import (
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Step 0 is to strip off apostrophes and "s".

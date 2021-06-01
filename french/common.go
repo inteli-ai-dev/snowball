@@ -1,8 +1,8 @@
 package french
 
 import (
-	"github.com/olegator77/snowball/romance"
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/romance"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Return `true` if the input `word` is a French stop word.

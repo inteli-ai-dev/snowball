@@ -3,7 +3,7 @@ package russian
 import (
 	"testing"
 
-	"github.com/olegator77/snowball/romance"
+	"github.com/inteli-ai-dev/snowball/romance"
 )
 
 // Test isLowerVowel for things we know should be true

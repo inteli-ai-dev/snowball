@@ -1,8 +1,8 @@
 package english
 
 import (
-	"github.com/olegator77/snowball/romance"
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/romance"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 // Replaces all different kinds of apostrophes with a single

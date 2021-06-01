@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/olegator77/snowball/snowballword"
+	"github.com/inteli-ai-dev/snowball/snowballword"
 )
 
 type stepFunc func(*snowballword.SnowballWord) bool
